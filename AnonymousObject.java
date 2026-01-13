@@ -1,6 +1,8 @@
 // An anonymous object is an object created without storing it in a reference variable. It is used only once at the time of creation.Synatx : new ClassName().methodName();
 
 class A {
+
+    boolean marks;
     public A() {
         System.out.println("Object created");
     }

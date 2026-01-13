@@ -1,3 +1,5 @@
+// import tools.AdvCalc;
+
 class Calc { // Superclass
     private int x;
     public int add(int a,int b) {
