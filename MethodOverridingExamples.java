@@ -22,7 +22,7 @@ public class MethodOverridingExamples {
     public static void main(String[] args) {
         Bank b;
 
-        b = new SBI();
+        b = new SBI(); // same as Bank b = new SBI();
         System.out.println(b.getInterestRate()); // 6.5
 
         b = new HDFC();
