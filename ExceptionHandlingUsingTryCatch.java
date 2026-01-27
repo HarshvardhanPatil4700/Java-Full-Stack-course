@@ -17,6 +17,7 @@ public class ExceptionHandlingUsingTryCatch {
         // System.out.println(d); // produces exception and execution stops here, So the exception must be handled 
         // System.out.println("Good day!");
 
+        // int i = 2;
         int i = 0;
         int j = 0;
 
