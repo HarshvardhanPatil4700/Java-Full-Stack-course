@@ -26,9 +26,24 @@ public class ExceptionHandlingUsingTryCatch {
             System.out.println("Cannot divide by zero");
             System.out.println(e); // gives the name of exception
         }
-        
         System.out.println(j);
+
+        try {
+            int arr[] = {1,2,3,4,5};
+            System.out.println(arr[7]);
+        } catch (Exception e) {
+            System.out.println("Array Index out of bound");
+        }
+
+        try {
+            String s = null;
+            System.out.println(s.length());
+        } catch (Exception e) {
+            System.out.println("Some exception occurred");
+        }
         System.out.println("Done!");
+
+
     }
 }
 /*
