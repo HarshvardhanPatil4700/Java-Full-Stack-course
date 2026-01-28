@@ -59,9 +59,14 @@ public class CustomException {
             } else {
                 throw new Pass("Pass");
             }
-        } catch (Result e) {
-            System.out.println("Result : " + e.getMessage());
-        } catch (Pass e) {
+        } 
+        // catch (Result e) {
+        //     System.out.println("Result : " + e.getMessage());
+        // } 
+        // catch (Pass e) {
+        //     System.out.println("Result : " + e.getMessage());
+        // }
+        catch (Result | Pass e) { // Multi-cast exception
             System.out.println("Result : " + e.getMessage());
         }
     }
