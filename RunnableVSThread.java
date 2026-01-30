@@ -60,7 +60,8 @@ public class RunnableVSThread {
         // b.start(); We cannot run thread like this as 'start' was the method present in Thread class which can be used only if thread is created by extending Thread class and Not when creating thread by implementing Runnable.
 
         Thread t1 = new Thread(obj1);
-        Thread t2 = new Thread(obj2);
+        // Thread t2 = new Thread(obj2); we can also give a name to a thread as:
+        Thread t2 = new Thread(obj2, "threadName");
 
         t1.start();
         t2.start();

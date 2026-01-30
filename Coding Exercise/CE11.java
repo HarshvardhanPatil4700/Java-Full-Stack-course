@@ -11,7 +11,7 @@ public class CE11 {
     public static void main(String[] args) {
         Runnable task = new PrinterTask();
  
-        Thread t1 = new Thread(task, "Worker-1");
+        Thread t1 = new Thread(task, "Worker-1"); // task is Runnable object
         Thread t2 = new Thread(task, "Worker-2");
         
         t1.start();
@@ -25,3 +25,9 @@ public class CE11 {
         }
     }
 } 
+
+/*
+"Worker-1" : This is the name of the thread
+Name for thread is Helpful for: Debugging, Logging, Identifying threads in stack traces.
+You can access it using: Thread.currentThread().getName();
+*/
