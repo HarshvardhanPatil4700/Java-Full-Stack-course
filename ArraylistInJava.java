@@ -57,5 +57,5 @@ public class ArraylistInJava {
  Not synchronized (not thread-safe by default)
  Slower insert/delete in the middle (shifting needed) 
  
- Methods: get(index), add(value), remove(index)
- */
+Methods: get(index), add(value), remove(index)
+*/
