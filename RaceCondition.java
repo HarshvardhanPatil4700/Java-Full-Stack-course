@@ -13,7 +13,7 @@ class Counter
 	}
 }
 
-public class Demo {
+public class RaceCondition {
     public static void main(String[] args) throws InterruptedException{   
     	
     	Counter c=new Counter();
