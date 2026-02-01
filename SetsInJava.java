@@ -1,6 +1,8 @@
 // A Set is a collection framework that does not allow duplicate elements (supports unique values only).It does not supports indexing(cannot use indexes)
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 // import java.util.LinkedHashSet;
@@ -39,6 +41,18 @@ public class SetsInJava {
         while(it.hasNext()) { // hasNext returns true if there is a next element present else returns false
             System.out.println(it.next()); // prints the next element
         }
+
+        // IMP : List to Set
+        List<String> names = new ArrayList<>();
+        names.add("Daniel");
+        names.add("Alex");
+        names.add("Roger");
+        names.add("Mike");
+        names.add("Mike");
+        System.out.println(names);
+        Set<String> names1 = new HashSet<>(names); // we can pass another object (as done). it copies values of the object in current object.Here, The Set removes the duplicates present in List (so, This method can be used to remove duplicates)
+        System.out.println(names1);
+
     }
 }
 /*

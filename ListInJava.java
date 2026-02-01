@@ -1,8 +1,10 @@
 // ArrayList is a resizable array implementation of the List interface in Java.
 // It stores elements in insertion order and allows duplicates.
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-public class ArraylistInJava {
+import java.util.Scanner;
+public class ListInJava {
     public static void main(String[] args) {
         // Collection<Integer> num = new ArrayList<Integer>(); // initializes the ArrayList with empty value
         ArrayList<String> names = new ArrayList<>();
@@ -47,6 +49,11 @@ public class ArraylistInJava {
         //     int x = (Integer) o;
         //     System.out.print(x*2 + " ");
         // } // gives exception        
+
+        // Arrays.asList(...) - Converts the given array of elements into a List.
+        List<String> studNames = Arrays.asList("Alice", "Bob", "Alice", "David", "Bob"); 
+        System.out.println(studNames);
+        Scanner s = new Scanner(System.in);        
     }
 }
 // use 'Collection' to store and fetch the value and if you want to work with index then use 'List' (as List support index while Collection does not)

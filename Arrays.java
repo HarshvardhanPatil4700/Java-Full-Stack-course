@@ -12,6 +12,8 @@
     // 4. 
     // int[] arr = new int[] {1, 2, 3};
 
+import java.util.List;
+
 public class Arrays {
     public static void main(String[] args) {
         // Fetching data of array using index
@@ -38,5 +40,10 @@ public class Arrays {
         for(int i = 0; i<a.length;i++) {
             System.out.print(a[i] + " ");
         }
+    }
+
+    public static List<String> asList(String string, String string2, String string3, String string4, String string5) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'asList'");
     }
 }
