@@ -72,13 +72,18 @@ public class StreamAPI {
     }
 }
 /*
-| Method     | Use                 | Methods return a stream
-| ---------- | ------------------- |
-| forEach()  | iterate             |
-| collect()  | convert to List/Set |
-| count()    | number of elements  |
-| reduce()   | combine values      |
-| anyMatch() | boolean check       |
+Methods return a stream
+| **Method**           | **Purpose / Description**              | **Example**                                  |
+| -------------------- | -------------------------------------- | -------------------------------------------- |
+| `filter(Predicate)`  | Keep elements that match a condition   | `nums.stream().filter(n -> n % 2 == 0)`      |
+| `map(Function)`      | Transform each element                 | `nums.stream().map(n -> n * 2)`              |
+| `flatMap(Function)`  | Flatten nested streams                 | `listOfLists.stream().flatMap(List::stream)` |
+| `distinct()`         | Remove duplicates                      | `nums.stream().distinct()`                   |
+| `sorted()`           | Sort elements in natural order         | `nums.stream().sorted()`                     |
+| `sorted(Comparator)` | Sort elements using a comparator       | `nums.stream().sorted((a,b) -> b - a)`       |
+| `limit(long n)`      | Take first `n` elements                | `nums.stream().limit(3)`                     |
+| `skip(long n)`       | Skip first `n` elements                | `nums.stream().skip(2)`                      |
+| `peek(Consumer)`     | Perform action (usually for debugging) | `nums.stream().peek(System.out::println)`    |
 
 Ways of creating stream : 
 1. From Collection
