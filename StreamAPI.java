@@ -72,7 +72,7 @@ public class StreamAPI {
     }
 }
 /*
-| Method     | Use                 |
+| Method     | Use                 | Methods return a stream
 | ---------- | ------------------- |
 | forEach()  | iterate             |
 | collect()  | convert to List/Set |
@@ -103,4 +103,14 @@ Stream<Double> s = Stream.generate(Math::random);
 
 7. Infinite Stream (iterate)
 Stream<Integer> s = Stream.iterate(1, n -> n + 1);
+
+| Terminal Operation | Result           | Terminal operations return a result(value) not a stream
+| ------------------ | ---------------- |
+| `forEach()`        | side-effect      |
+| `collect()`        | List / Set / Map |
+| `count()`          | long             |
+| `reduce()`         | single value     |
+| `min()` / `max()`  | Optional         |
+| `findFirst()`      | Optional         |
+| `anyMatch()`       | boolean          |
  */
