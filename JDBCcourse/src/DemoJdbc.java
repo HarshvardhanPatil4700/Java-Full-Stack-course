@@ -14,14 +14,14 @@ public class DemoJdbc {
         7. close connection
          */
 
-        String url = "jdbc:postgres://localhost:5432/demo";
+        String url = "jdbc:postgresql://localhost:5432/demo";
         String uname = "postgres";
-        String passw = "0000";
+        String passw = "1234";
 
-        Class.forName("org.postgresql.Driver"); // step 2 (throws exception)
+//        Class.forName("org.postgresql.Driver"); // step 2 (throws exception) NOT required after JDBC 4.0
         Connection con = DriverManager.getConnection(url,uname,passw);// to connect application to database we do it by connection object
 
-
+        System.out.println("Connected Successfully!");
     }
 }
 /*
