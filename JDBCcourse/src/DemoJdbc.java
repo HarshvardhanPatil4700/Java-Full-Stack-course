@@ -18,7 +18,7 @@ public class DemoJdbc {
         String url = "jdbc:postgresql://localhost:5432/demo";
         String uname = "postgres";
         String passw = "1234";
-        String sql = "select sname from student where sid = 1";
+        String sql = "select * from student";
 
 
         // Class.forName("org.postgresql.Driver"); // step 2 (throws exception) NOT required after JDBC 4.0
@@ -31,9 +31,18 @@ public class DemoJdbc {
         ResultSet rs = st.executeQuery(sql);
         // Step 6:
         //System.out.println(rs.next()); // .next() method Moves cursor one row forward and Returns:true → if next row exists (or) false → if no more rows
-        rs.next();
-        String name = rs.getString("sname"); // we need to mention the col name / col IndexNo. of which o/p we want as some query can give multiple columns after execution
-        System.out.println("Name of the Student is : " + name);
+
+//        rs.next();
+//        String name = rs.getString("sname"); // we need to mention the col name / col IndexNo. of which o/p we want as some query can give multiple columns after execution
+//        System.out.println("Name of the Student is : " + name);
+
+        // To fetch multiple records
+        while(rs.next()) { // rs.next() check if there is next row present and also ensures we are jumping row to row
+            System.out.print(rs.getString(1) + " : ");
+            System.out.print(rs.getString(2) + " - ");
+            System.out.print(rs.getString(3));
+            System.out.println();
+        }
         // Step 7:
         con.close();
         System.out.println("Connection closed!");
@@ -62,5 +71,13 @@ It has 3 parts :
 
 Note:
 Before executing the rs points to place before 1st index i.e(kind of -1) so we need to write rs.next() so that it moves to 1st index(Cursor starts at position -1 and rs.next() → moves to row 1)
+
+8. Fetching all records :
+while(rs.next()) - Moves cursor row by row and Also checks if a next row exists
+👉 Works like:
+Move to row 1 → process
+Move to row 2 → process
+Move to row 3 → process
+No row → loop stops
 
 */
