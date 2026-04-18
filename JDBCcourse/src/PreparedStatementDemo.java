@@ -1,11 +1,11 @@
 import java.sql.*;
 
-public class PreparedStatement {
+public class PreparedStatementDemo {
     public static void main() throws ClassNotFoundException, SQLException {
 
-        int sid = 101;
-        String sname = "William";
-        int smark = 60;
+        int sid = 102;
+        String sname = "Jarvis";
+        int marks = 70;
 
         String url = "jdbc:postgresql://localhost:5432/demo";
         String uname = "postgres";
@@ -25,9 +25,99 @@ public class PreparedStatement {
         // Statement st = con.createStatement(); Use Statement when sql query is simple and static (no user i/p).It has Sql injection risk and it is slower than PreparedStatement
         PreparedStatement st = con.prepareStatement(sql);
         st.setInt(1,sid);
-        boolean status = st.execute(sql);
-        System.out.println(status);
+        st.setString(2,sname);
+        st.setInt(3,marks);
+
+//        boolean status = st.execute(sql);
+//        System.out.println(status);
+        int rows = st.executeUpdate();
+        System.out.println("Rows inserted: " + rows);
 
         con.close();
     }
 }
+/*
+import java.sql.*;
+
+public class StatementExample {
+    public static void main(String[] args) throws Exception {
+
+        int id = 202;
+        String name = "Steve";
+        int marks = 90;
+
+        String url = "jdbc:postgresql://localhost:5432/demo";
+        String user = "postgres";
+        String password = "1234";
+
+        Connection con = DriverManager.getConnection(url, user, password);
+
+        Statement st = con.createStatement();
+
+        // ❌ Concatenation (unsafe)
+        String sql = "INSERT INTO student(id, name, marks) VALUES ("
+                + id + ", '" + name + "', " + marks + ")";
+
+        int rows = st.executeUpdate(sql);
+        System.out.println("Rows inserted: " + rows);
+
+        con.close();
+    }
+}
+
+USING PreparedStatement :-
+import java.sql.*;
+
+public class PreparedStatementExample {
+    public static void main(String[] args) throws Exception {
+
+        // Data (can be user input)
+        int id = 201;
+        String name = "Tony";
+        int marks = 85;
+
+        // DB details
+        String url = "jdbc:postgresql://localhost:5432/demo";
+        String user = "postgres";
+        String password = "1234";
+
+        // SQL with placeholders
+        String sql = "INSERT INTO student(id, name, marks) VALUES (?, ?, ?)";
+
+        // Step 1: Connection
+        Connection con = DriverManager.getConnection(url, user, password);
+
+        // Step 2: Prepare statement
+        PreparedStatement ps = con.prepareStatement(sql);
+
+        // Step 3: Set values
+        ps.setInt(1, id);
+        ps.setString(2, name);
+        ps.setInt(3, marks);
+
+        // Step 4: Execute
+        int rows = ps.executeUpdate();
+
+        System.out.println("Rows inserted: " + rows);
+
+        // Step 5: Close
+        con.close();
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------
+Example: SELECT using PreparedStatement
+String sql = "SELECT * FROM student WHERE id = ?";
+
+PreparedStatement ps = con.prepareStatement(sql);
+ps.setInt(1, 201);
+
+ResultSet rs = ps.executeQuery();
+
+while (rs.next()) {
+    System.out.println(
+        rs.getInt("id") + " " +
+        rs.getString("name") + " " +
+        rs.getInt("marks")
+    );
+}
+ */
