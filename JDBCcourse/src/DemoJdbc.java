@@ -56,7 +56,7 @@ public class DemoJdbc {
 
             System.out.println();
         }
-
+        // use rs.close(); and st.close(); to avoid data leakages (Optional but good practice)
         // Step 7:
         con.close();
         System.out.println("Connection closed!");
