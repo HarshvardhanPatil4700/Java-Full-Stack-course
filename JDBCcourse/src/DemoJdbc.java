@@ -37,12 +37,26 @@ public class DemoJdbc {
 //        System.out.println("Name of the Student is : " + name);
 
         // To fetch multiple records
+        /* When we know the no. of columns in table USE THIS :-
         while(rs.next()) { // rs.next() check if there is next row present and also ensures we are jumping row to row
             System.out.print(rs.getString(1) + " : ");
             System.out.print(rs.getString(2) + " - ");
             System.out.print(rs.getString(3));
             System.out.println();
+        }*/
+        // WHen we Dont know the no. of columns in table USE THIS :-
+        ResultSetMetaData metaData = rs.getMetaData();
+        int columnCount = metaData.getColumnCount(); // gives no. of columns in table
+        while (rs.next()) { // Outer loop -> rows
+
+            // Inner loop → columns
+            for (int i = 1; i <= columnCount; i++) {
+                System.out.print(rs.getString(i) + " ");
+            }
+
+            System.out.println();
         }
+
         // Step 7:
         con.close();
         System.out.println("Connection closed!");
@@ -80,4 +94,5 @@ Move to row 2 → process
 Move to row 3 → process
 No row → loop stops
 
+9. ResultMetaData - An object that can be used to get information about the types and properties of the columns in a ResultSet object.
 */
