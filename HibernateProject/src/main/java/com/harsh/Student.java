@@ -1,6 +1,11 @@
 package com.harsh;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
 public class Student {
+    @Id // denotes that the rollNo property is Primary Key of table
     private int rollNo;
     private String sName;
     private int sAge;

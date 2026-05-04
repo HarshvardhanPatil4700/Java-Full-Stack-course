@@ -1,0 +1,28 @@
+<!-- In this file, we have to provide all the configurations -->
+
+<hibernate-configuration xmlns="http://www.hibernate.org/xsd/orm/cfg">
+    <session-factory>
+
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/myDatabase</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">1234</property>
+
+<!--        <property name="hibernate.hbm2ddl.auto">create</property>  This creates table every time for all query but we want only one table that is created once and updated for each query insertion so we use : update -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <property name="hibernate.show_sql">true</property> <!--makes sure user gets to view the sql query that is run by hibernate behind the scene in unformatted way.to get it in proper formatted way use : -->
+        <property name="hibernate.format_sql">true</property> <!-- display the sql query in formatted way-->
+
+    </session-factory>
+</hibernate-configuration>
+
+<!-- hibernate.hbm2ddl.auto → controls how Hibernate handles database schema (tables)
+update → automatically updates the database schema based on your entity classes
+It Creates tables if they don’t exist, Adds new columns if added in entity and Does NOT delete existing data
+
+hibernate.dialect → tells Hibernate which database you are using
+org.hibernate.dialect.PostgreSQLDialect → specifies PostgreSQL database
+Why it is needed - because, Different databases use different SQL syntax (It is OPTIONAL) -->
