@@ -9,7 +9,7 @@
         <property name="hibernate.connection.password">1234</property>
 
 <!--        <property name="hibernate.hbm2ddl.auto">create</property>  This creates table every time for all query but we want only one table that is created once and updated for each query insertion so we use : update -->
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
 
         <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 
